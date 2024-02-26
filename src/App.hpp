@@ -31,6 +31,16 @@ public:
     void render();
     bool shouldClose();
 
+    virtual void loop(){
+
+        ImGui::Begin("Please implement loop function", NULL, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoMove);
+        ImGui::Text("Please implement loop function");
+        ImGui::End();
+    };
+    virtual void startUp(){
+        perror("Please implement startUp function");
+    };
+
 private:
     
     static void glfw_error_callback(int error, const char* description)

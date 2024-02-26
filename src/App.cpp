@@ -56,6 +56,9 @@ void App::setup(){
     // Setup Platform/Renderer bindings
     ImGui_ImplGlfw_InitForOpenGL(this->window, true);
     ImGui_ImplOpenGL3_Init(glsl_version);
+
+
+
 }
 
 void App::cleanup(){
@@ -75,6 +78,8 @@ bool App::shouldClose(){
 }
 
 void App::render(){
+
+
     ImGui_ImplOpenGL3_NewFrame();
     ImGui_ImplGlfw_NewFrame();
     ImGui::NewFrame();
@@ -82,12 +87,12 @@ void App::render(){
     if(io.ConfigFlags & ImGuiConfigFlags_DockingEnable)
         ImGui::DockSpaceOverViewport(ImGui::GetMainViewport(), ImGuiDockNodeFlags_PassthruCentralNode);
 
+    this->loop();
     
-
     ImGui::Render();
     glfwGetFramebufferSize(this->window, &(this->windowProps.width), &(this->windowProps.height));
     glViewport(0, 0, this->windowProps.width, this->windowProps.height);
-    glClearColor(0.45f, 0.55f, 0.60f, 1.00f);
+    glClearColor(this->windowProps.clear_color.x, this->windowProps.clear_color.y, this->windowProps.clear_color.z, this->windowProps.clear_color.w);
     glClear(GL_COLOR_BUFFER_BIT);
     ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
