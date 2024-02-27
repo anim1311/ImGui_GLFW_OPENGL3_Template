@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(ChatUI)
+project(IMGUI_GLFW_OPENGL3)
 
 # Set C++ standard
 set(CMAKE_CXX_STANDARD 11)
