@@ -1,6 +1,7 @@
 #pragma once
 
 #include "App.hpp"
+#include <iostream>
 
 class Application : public App
 {
@@ -27,10 +28,20 @@ public:
         // place something that you want to run at the start of the application
     };
     void loop() override{
-        // place something that you want to run in the loop of the application
-        ImGui::ShowDemoWindow();
+        // place something that you want to run every frame
+
+        makeChatwindow();
     };
 
-    
+
+private:
+
+    void makeChatwindow(){
+        ImGui::Begin("Chat", NULL, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoCollapse );
+
+        
+
+        ImGui::End();
+    }
 };
 
